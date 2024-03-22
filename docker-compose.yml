@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  db:
+    container_name: task_db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - development
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - development
+
+networks:
+  development:
+    driver: bridge
