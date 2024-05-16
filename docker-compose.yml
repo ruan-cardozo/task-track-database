@@ -21,6 +21,17 @@ services:
     networks:
       - development
 
+  pgAdmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 5050:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    networks:
+      - development
+
 networks:
   development:
     driver: bridge
